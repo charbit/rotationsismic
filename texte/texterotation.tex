@@ -1,0 +1,266 @@
+\documentclass[a4paper, 12pt]{report}
+%================================================================
+\usepackage{color,amsmath,amsfonts,amssymb,epsfig,hyperref}
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{pdfpages}
+%====================================
+ \textheight 24cm
+% \doublespace
+  \oddsidemargin -0.5cm
+  \evensidemargin +1.5cm
+  \textwidth 17cm
+ \topmargin -2cm
+%============================================
+% Figures
+%============================================
+\newcommand{\figsstit}[2]{
+\begin{figure}[hbtp]
+\centerline{
+    \hbox{ \includegraphics[scale=#2]{#1} }
+}
+\end{figure}}
+%============================================
+\newcommand{\figscale}[4]{
+\begin{figure}[hbtp]
+\centerline{
+    \hbox{ \includegraphics[scale=#4]{#1} }
+}
+\begin{center}
+\parbox{14 cm}
+{
+    \caption{\protect\small\it  {#2}}
+    \label {#3}
+}
+\end{center}
+
+\end{figure}}
+
+%==================================================
+\newcommand\algo[1]%
+{
+    \begin{center} %
+    \begin{tabular} {||p{10 cm}l ||}%
+    \hline
+               #1 &  \\
+    \hline
+    \end{tabular}
+    \vspace{12pt}
+    \end{center}
+}
+
+
+%==============================================
+\newcommand{\prob}[1]{\mathds{P}\left( #1 \right)}
+\newcommand{\esp}[1]{\mathds{E}\left[ #1 \right]}
+\newcommand{\var}[1]{\mathrm{var}\left( #1 \right)}
+\newcommand{\cov}[1]{\mathrm{cov}\left( #1 \right)}
+\newcommand{\diag}[1]{\mathrm{diag}\left( #1 \right)}
+\newcommand{\trace}[1]{\mathrm{trace}\left( #1 \right)}
+\newcommand{\card}[1]{\left| #1 \right|}
+\newcommand{\myemph}[1]{\emph{\color{red}#1}}
+
+%%============================================================================
+\def\thesection{\arabic{section}}
+%\def\thesubsection{\arabic{section}.\arabic{subsection}}
+%\def\thesubsubsection{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+%\def\thefigure{\arabic{figure}}
+%\def\theequation{\arabic{equation}}
+%\def\theexercice{\arabic{exercice}}
+%\def\theexample{\arabic{example}}
+%\def\theproof{\arabic{proof}}
+
+%===============================================
+\newtheorem{property}{Properties}
+\newtheorem{remark}{Remark}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{lemme}{Lemme - \thelemme}
+\newtheorem{proof}{Proof - \theproof}
+\newenvironment{TAB}{\begin{table}[[hbt] \center \leavevmode}{\end{table}}
+%%============================================================================
+%\renewcommand\arraystretch{1.6}
+
+\def\ua{\underline a}
+\def\ub{\underline b}
+\def\uB{\underline B}
+\def\uH{\underline H}
+\def\ur{\underline r}
+\def\us{\underline s}
+\def\ux{\underline x}
+\def\uX{\underline X}
+\def\uZ{\underline Z}
+\def\utheta{\underline \theta}
+
+
+
+\def\tn{\mathrm{TN}}
+\def\fn{\mathrm{FN}}
+\def\tp{\mathrm{TP}}
+\def\fp{\mathrm{FP}}
+\def\tpn{\mathrm{tPN}}
+\def\tnn{\mathrm{tNN}}
+\def\tdn{\mathrm{tDN}}
+
+\def\precision{\mathrm{\color{red}Precision}}
+\def\recall{\mathrm{\color{red}Recall}}
+\def\fscore{{\color{red}F\mathrm{-score}}}
+\def\far{\mathrm{FAR}}
+\def\mdr{\mathrm{MDR}}
+\def\vdr{\mathrm{VDR}}
+\def\ci{\mathrm{CI}}
+\def\pfa{P_{\mathrm{FA}}}
+\def\pd{P_{\mathrm{D}}}
+\def\loc{\mathrm{LOC}}
+
+\def\SNR{\mathrm{SNR}}
+\def\crb{\mathrm{CRB}}
+\def\fim{\mathrm{FIM}}
+
+\def\auc{\mathrm{AUC}}
+\def\aec{\mathrm{aec}}
+
+
+
+\def\void{{\small void}}
+\def\nomeaning{{\small meaningless}}
+\def\unknown{{\small unknown}}
+\def\MSC{\mathrm{MSC}}
+\def\hMSC{\widehat{\MSC}}%{\MSC}} 
+\def\ellk{{k}}
+\def\SOI{common signal part }
+\def\absGamma{\Phi}
+
+%============== colors ========================
+\definecolor{enstrouge}{RGB}{212,65,84}
+\definecolor{lightorange}{RGB}{235,226,52}
+\definecolor{greennoise}{RGB}{243,42,255}
+\definecolor{lightred}{RGB}{255,181,183}
+\definecolor{light-grey}{rgb}{0.95,0.95,0.95}
+\definecolor{peach}{rgb}{0.98,0.49,0.25}
+\definecolor{burntorange}{rgb}{0.79,0.37,0}
+\definecolor{light-yellow}{rgb}{1,1,0.92}
+
+\definecolor{light-green}{RGB}{231,255,145}
+\definecolor{enstorange}{RGB}{255,214,10}
+\definecolor{enstrouge}{RGB}{212,65,84}
+\definecolor{grey}{RGB}{204,204,204}
+\definecolor{blue}{RGB}{0,0,255}
+\definecolor{almost-black}{RGB}{100,100,100}
+\definecolor{violet}{rgb}{0.4,0,0.4}
+\definecolor{cyan}{RGB}{0,255,255}
+\definecolor{magenta}{RGB}{243,42,255}
+
+\def\degree{^{\circ}}
+\def\simiid{\stackrel{\mathrm{i.i.d.}}{\sim}}
+\def\simind{\stackrel{\mathrm{ind.}}{\sim}}
+
+ 
+%%%============================================================================
+%%\def\thesection{\arabic{section}}
+%%\def\thefigure{\arabic{figure}}
+%%\def\theequation{\arabic{equation}}
+%%\def\theexercice{\arabic{exercice}}
+%%\def\theequation{\arabic{exercice}.\arabic{equation}}
+%%%============================================================================
+%%\newcounter{auxiliaire}
+%%%%%%%%% comment
+%%\setcounter{auxiliaire}{\theenumi}
+%%\end{enumerate}
+%% TEXTE
+%%\begin{enumerate}
+%%\setcounter{enumi}{\theauxiliaire}
+%%%============================================================================
+
+ \bibliographystyle{plain} 
+
+\begin{document}
+ \sloppy
+%=======================================================
+%=======================================================
+\section{Introduction}
+A 3D seismic sensor  consists of 3 sensors, each one with a direction of measurement. Each direction is associated to the Theoretically it is required that the 3 directions are orthogonal.
+
+The signal depends of the dot product between $u_{k}$ and the DOA of the source, assumed to be faraway  in such a way the wave can be considered as plane. Usually, by construction, the 3 vectors $u_{k}$ are orthogonal.
+
+If we considered 2 seismic sensors it is not sure that the 3 arm directions coincide. If not the transformation that brings one sensor to the other is a 3 D rotation.
+
+
+We consider a 3D sensor denoted SUT and a 3D sensor denoted SREF. We denote $x_{u}(t)$ the 3D time series of the SUT and $x_{r}(t)$ the 3D time series of the SREF.  Therefore we can write in the frequency domain:
+
+\begin{eqnarray*}
+\left\{
+\begin{array}{rcl}
+X_{u}(f)&=&R(\theta) H_{u}(f)S(f)
+\\
+X_{r}(f)&=&H_{r}(f)S(f)
+\end{array}\right .
+\end{eqnarray*}
+where $R$ is a rotation matrix, which in the most general case depends the 3D parameter $\theta$, where $H_{u}(f)$ and $H_{r}(f)$  are the 3D frequency responses of each arm of the respective sensors.
+It follows that
+\begin{eqnarray*}
+X_{u}(f) &=&R(\theta)H_{u}(f) (H_{r}^{T}(f)H_{r}(f))^{-1}H_{r}^{T}(f)X(f)
+\end{eqnarray*}
+Then
+\begin{eqnarray*}
+X_{u}(f)X_{u}^{T}(f) &=&R(\theta)H_{u}(f) (H_{r}^{T}(f)H_{r}(f))^{-1}H_{r}^{T}(f)X_{r}(f)X_{u}^{T}(f)
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+X_{u}(f)X_{u}^{T}(f) &=&R(\theta)H_{u}(f) (H_{r}^{T}(f)H_{r}(f))^{-1}H_{r}^{T}(f)X_{r}(f)X_{u}^{T}(f)
+\end{eqnarray*}
+
+\begin{eqnarray*}
+X_{u}(f)X_{u}^{T}(f) &=&R(\theta)a(f)H_{u}(f) X_{u}^{T}(f)
+\end{eqnarray*}
+where $a(f)=(H_{r}^{T}(f)H_{r}(f))^{-1}H_{r}^{T}(f)X_{r}(f)$ is a scalar. Let $S(f)=X_{u}(f)X_{u}^{T}(f)$ and $Q(f)=H_{u}(f) X_{u}^{T}(f)$. We have
+\begin{eqnarray*}
+S(f)&=&R(\theta)a(f)Q(f)
+\end{eqnarray*}
+By integration on $f$, we have:
+\begin{eqnarray*}
+S&=&R(\theta) P
+\end{eqnarray*}
+Usually $S$ and $P$ are full rank, therefore $R$ can be derived from $S$ and $P$ but with the constraint that $R$ is unitary.
+A way could be to numerically minimize 
+\begin{eqnarray*}
+J(\theta) &=& \| S - R(\theta)P\|_{F}^{2}
+\end{eqnarray*}
+where $R(\theta)=R_{x}(\theta_{x})R_{y}(\theta_{y})R_{z}(\theta_{z})$ and
+\begin{eqnarray*}
+\begin{array}{ccc}
+R_{x}(\theta_{x})=
+\begin{bmatrix}
+1&0&0\\
+0 &\cos(\theta_{x})&-\sin(\theta_{x})\\
+0&\sin(\theta_{x})&\cos(\theta_{x})
+\end{bmatrix}
+&
+%\end{eqnarray*}
+%
+%\begin{eqnarray*}
+R_{y}(\theta_{y})=
+\begin{bmatrix}
+\cos(\theta_{y})&0&\sin(\theta_{y})\\
+0&1&0\\
+-\sin(\theta_{y})&0&\cos(\theta_{y})
+\end{bmatrix}
+\\ \\
+%\end{eqnarray*}
+%
+%\begin{eqnarray*}
+R_{z}(\theta_{z})=
+\begin{bmatrix}
+\cos(\theta_{z})&-\sin(\theta_{z})&0\\
+\sin(\theta_{z})&\cos(\theta_{z})&0\\
+0&0&1
+\end{bmatrix}
+\end{array}
+\end{eqnarray*}
+
+\end{document}
+
